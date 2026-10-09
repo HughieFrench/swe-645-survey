@@ -1,0 +1,115 @@
+<!--
+Hugh French
+G01324524
+
+This is the survey.html file for the website, which carries the survey form and loads when clicking the link on the homepage.
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<style>
+body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+</style>
+</head>
+<body class="w3-light-grey">
+
+<!-- w3-content defines a container for fixed size centered content, 
+and is wrapped around the whole page content, except for the footer in this example -->
+<div class="w3-content" style="max-width:1400px">
+
+<!-- Header -->
+<header class="w3-container w3-center w3-padding-32"> 
+  <h1><b>Student Survey Form</b></h1>
+</header>
+
+<form action="">
+	<!--Mandatory text fields-->
+	<div>
+		<label for="fname">First name:</label>
+		<input type="text" id="fname" name="fname" required><br>
+		<label for="lname">Last name:</label>
+		<input type="text" id="lname" name="lname" required><br>
+		<label for="addr">Street address:</label>
+		<input type="text" id="addr" name="addr" required><br>
+		<label for="city">City:</label>
+		<input type="text" id="city" name="city" required><br>
+		<label for="state">State:</label>
+		<input type="text" id="state" name="state" required><br>
+		<label for="zip">ZIP code:</label>
+		<input type="text" id="zip" name="zip" required><br>
+		<label for="phone">Telephone number:</label>
+		<input type="tel" id="phone" name="phone" required><br>
+		<label for="email">E-mail:</label>
+		<input type="email" id="email" name="email" required><br>
+		<label for="date">Date of survey:</label>
+		<input type="date" id="date" name="date" required><br><br>
+	</div>
+
+	<div>
+		<h5>What did you like most about campus?</h5>
+		<label for="students">Students</label>
+		<input type="checkbox" id="students" name="like" value="students"><br>
+		<label for="location">Location</label>
+		<input type="checkbox" id="location" name="like" value="location"><br>
+		<label for="atmosphere">Atmosphere</label>
+		<input type="checkbox" id="atmosphere" name="like" value="atmosphere"><br>
+		<label for="campus">Campus</label>
+		<input type="checkbox" id="campus" name="like" value="campus"><br>
+		<label for="dorm">Dorm room</label>
+		<input type="checkbox" id="dorm" name="like" value="dorm"><br>
+		<label for="sports">Sports</label>
+		<input type="checkbox" id="sports" name="like" value="sports"><br><br>
+	</div>
+
+	<div>
+		<h5>How did you become interested in the university?</h5>
+		<input type="radio" id="interestChoice1" name="interest" value="friends" />
+		<label for="interestChoice1">Friends</label>
+
+		<input type="radio" id="interestChoice1" name="interest" value="television" />
+		<label for="interestChoice1">Television</label>
+
+		<input type="radio" id="interestChoice1" name="interest" value="internet" />
+		<label for="interestChoice1">Internet</label>
+
+		<input type="radio" id="interestChoice1" name="interest" value="other" />
+		<label for="interestChoice1">Other</label><br><br>
+	</div>
+
+	<div>
+		<h5>How likely are you to recommend this school to prospective students?</h5>
+		<select id="rec" name="rec">
+			<option value="vlikely">Very Likely</option>
+			<option value="likely">Likely</option>
+			<option value="unlikely">Unlikely</option>
+=		</select><br><br>
+	</div>
+
+	<div>
+		<h5>Raffle</h5>
+		<label for="raffle">Enter 10 numbers, 1-100, separated by commas:</label>
+		<input type="text" id="raffle" name="raffle"><br><br>
+	</div>
+
+	<div>
+		<h5>Additional comments here:</h5>
+		<input type="text" id="comments" name="comments"><br><br>
+	</div>
+
+	<input type="submit" value="Submit">
+	<input type="reset" value="Cancel">
+</form>
+
+<!-- Footer -->
+<footer class="w3-container w3-dark-grey w3-padding-32 w3-margin-top">
+	<p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+</footer>
+
+</body>
+</html>

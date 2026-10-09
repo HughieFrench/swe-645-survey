@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-survey
+spec:
+  selector:
+    matchLabels:
+      run: nginx-survey
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        run: nginx-survey
+    spec:
+      containers:
+      - name: nginx-survey
+        image: hfrench5/ubuntu-nginx-survey
+        ports:
+        - containerPort: 80
