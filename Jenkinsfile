@@ -2,6 +2,7 @@ pipeline {
 	agent any
 
 	environment {
+		DOCKERHUB_PASS = credentials('docker-pass')
 		DOCKERHUB_USER = 'hfrench5'
 		IMAGE_NAME = 'ubuntu-nginx-survey'
 		IMAGE_TAG = 'latest'
@@ -15,6 +16,7 @@ pipeline {
 		stage('Build Docker image') {
 			steps {
 				script {
+					sh "docker login -u ${DOCKERHUB_USER} -p $DOCKERHUB_PASS"
 					dockerImage = docker.build("${DOCKERHUB_USER}/${IMAGE_NAME}:${IMAGE_TAG}")
 				}
 			}
