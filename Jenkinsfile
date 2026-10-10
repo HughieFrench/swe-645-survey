@@ -16,7 +16,6 @@ pipeline {
 		stage('Build Docker image') {
 			steps {
 				script {
-					sh "docker login -u ${DOCKERHUB_USER} -p $DOCKERHUB_PASS_PSW"
 					dockerImage = docker.build("${DOCKERHUB_USER}/${IMAGE_NAME}:${IMAGE_TAG}")
 				}
 			}
@@ -24,7 +23,7 @@ pipeline {
 		stage('Push to Docker Hub') {
 			steps {
 				script {
-					docker.withRegistry('https://index.docker.io/v1/', 'docker-pass') {
+					docker.withRegistry('https://registry-1.docker.io', 'docker-pass') {
 						dockerImage.push()
 					}
 				}
