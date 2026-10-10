@@ -9,7 +9,7 @@ pipeline {
 	stages {
 		stage('Checkout') {
 			steps {
-				git 'https://github.com/HughieFrench/swe-645-survey.git'
+				checkout scm
 			}
 		}
 		stage('Build Docker image') {
