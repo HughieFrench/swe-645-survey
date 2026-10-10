@@ -33,11 +33,15 @@ pipeline {
 		stage('Update Kubernetes deployment') {
 			steps {
 				script {
-					sh """
-					sed -i 's|<YOUR_DOCKERHUB_USERNAME>/ubuntu-nginx-survey:latest|${DOCKERHUB_USER}/${IMAGE_NAME}:${IMAGE_TAG}|' nginx-survey-deployment.yaml
-					kubectl apply -f nginx-survey-deployment.yaml
-					kubectl apply -f nginx-survey-service.yaml
-					"""
+					withKubeConfig([
+						credentialsId: 'kubeconfig-id'
+					]) {
+						sh """
+						sed -i 's|<YOUR_DOCKERHUB_USERNAME>/ubuntu-nginx-survey:latest|${DOCKERHUB_USER}/${IMAGE_NAME}:${IMAGE_TAG}|' nginx-survey-deployment.yaml
+						kubectl apply -f nginx-survey-deployment.yaml
+						kubectl apply -f nginx-survey-service.yaml
+						"""
+					}
 				}
 			}
 		}
