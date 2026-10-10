@@ -32,7 +32,7 @@ pipeline {
 			steps {
 				script {
 					sh """
-					sed -i 's|hfrench5/ubuntu-nginx-survey:latest|${DOCKERHUB_USER}/${IMAGE_NAME}:${IMAGE_TAG}|' k8s/deployment.yaml
+					sed -i 's|<YOUR_DOCKERHUB_USERNAME>/ubuntu-nginx-survey:latest|${DOCKERHUB_USER}/${IMAGE_NAME}:${IMAGE_TAG}|' k8s/deployment.yaml
 					kubectl apply -f k8s/deployment.yaml
 					kubectl apply -f k8s/service.yaml
 					"""
